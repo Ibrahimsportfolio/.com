@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<style>
+    
+* {
+    box-sizing: border-box; /* Ensures padding and borders are included in the element's total width and height */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    max-width: 100vw; /* Prevent body from exceeding the viewport width */
+  }
+.company_name{
+  display:flex;
+  font-size: 30px;
+  font-family: "Gabarito", sans-serif;
+  font-style: normal;
+  font-weight:900;
+  margin-left: 10px
+
+}
+header {
+    background: #000;
+    color: white;
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    justify-content: flex-end;
+}
+
+.menu-icon img {
+    width: 700px;
+    height: 30px;
+    
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed; /* Changed from absolute to fixed to prevent overflow */
+        right: 0;
+        top: 60px;
+        background: #111;
+        width: 200px;
+        height: calc(100vh - 60px); /* Ensure the menu covers the height of the screen */
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        border-radius: 5px 0 0 5px;
+        transform: translateX(100%);
+        opacity: 0;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    .nav-links.show {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+
+
+</style>
+<body>
+  <header>
+       
+        <nav>
+            <span class="company_name">
+                BLOG
+            </span>
+            <div class="menu-icon">
+                <img src="/m2i8i8A0K9A0H7b1_0_-removebg-preview.png" alt="Menu" id="hamburger">
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+   
+  <script>
+    const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+// Paths to your hamburger and close icons
+const hamburgerIconPath = '/m2i8i8A0K9A0H7b1_0_-removebg-preview.png'; // Ensure this path is correct
+const closeIconPath = '/01fe6447fbd35f56bf5b36ce07e7fabb-removebg-preview.png'; // Ensure this path is correct
+
+// Hamburger menu toggle
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+
+    // Change icon based on menu visibility
+    if (navLinks.classList.contains('show')) {
+        hamburger.src = '01fe6447fbd35f56bf5b36ce07e7fabb-removebg-preview.png'; // Change to close icon
+    } else {
+        hamburger.src = '/m2i8i8A0K9A0H7b1_0_-removebg-preview.png ';
+    }
+});
+hamburger.style.width = '46px';
+hamburger.style.height = '30px';
+
+  </script>
+</body>
+</html>
